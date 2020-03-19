@@ -6,16 +6,16 @@
         <div class="product" v-for="(product, index) in products" :key="product.id">
           <div class="info">
             <h1>{{product.title}}</h1>
-            <p>{{product.artist}}</p>
+            <p>Artist: {{product.artist}}</p>
+            <p>Album: {{product.album}}</p>
+            <p>Genre: {{product.genre}}</p>
           </div>
-          <div class="price">
-            <h2>{{product.album}}</h2>
-            <button v-on:click="removeFromCart(index)" class="auto">Remove</button>
-          </div>
+          <img class="image" v-on:click="removeFromCart(index)" src="/images/heart_pink.png" />
         </div>
       </div>
 
-      <ProductList :products="products" /> <!-- why won't this work -->
+      <ProductList :products="products" />
+      <!-- why won't this work -->
 
       <p>{{ cartMessage }}</p>
     </div>
@@ -45,6 +45,13 @@ export default {
 </script>
 
 <style scoped>
+.image {
+  height: 40px;
+  width: 40px;
+  border: 0;
+  margin: auto;
+}
+
 #title {
   text-align: center;
 }
@@ -63,68 +70,30 @@ export default {
 }
 
 .product {
+  display: flex;
+  /* background: #1ed761; */
+  background: #f5f5f5;
+  border: 3px solid #1ed761;
+  border-radius: 8px;
+
   margin: 10px;
   margin-top: 50px;
-  width: 150px;
-}
-
-.product img {
-  border: 2px solid #333;
-  height: 200px;
-  width: 150px;
-  object-fit: cover;
-}
-
-.product .image {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 5px;
+  padding: 20px;
+  width: 300px;
 }
 
 .info {
-  background: #ffd9a3;
   color: #000;
-  padding: 10px 30px;
-  height: 80px;
+  padding-right: 15px;
 }
 
 .info h1 {
-  font-size: 16px;
-}
-
-.info h2 {
-  margin: 0;
-  font-size: 14px;
+  font-size: 19px;
+  margin-top: 0;
 }
 
 .info p {
   margin: 0px;
-  font-size: 10px;
-}
-
-.price {
-  display: flex;
-}
-
-button {
-  height: 30px;
-  background: #ab000b;
-  color: white;
-  border: none;
-  margin-left: auto;
-  align-self: center;
-}
-
-.auto {
-  margin-left: auto;
-}
-
-#submitOrder {
-  height: 50px;
-  background: #83cf40;
-  margin: initial;
-  display: flex;
-  margin-top: auto;
-  margin-left: auto;
+  font-size: 18px;
 }
 </style>

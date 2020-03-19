@@ -26,7 +26,7 @@
           </li>
           <li class="pure-menu-item">
             <router-link to="/favorites">
-              <a class="pure-menu-link">See my favorites</a>
+              <a class="pure-menu-link">See my Favorites</a>
             </router-link>
           </li>
         </ul>
