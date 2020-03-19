@@ -10,8 +10,20 @@
       </div>
       <div class="product" v-for="product in products" :key="product.id">
         <div class="info">
-          <img v-if="!isFound(product)" @click="addToCart(product)" class="image" src="/images/heart.png" alt />
-          <img v-if="isFound(product)" @click="removeFromCart(product)" class="image" src="/images/heart_pink.png" alt />
+          <img
+            v-if="!isFound(product)"
+            @click="addToCart(product)"
+            class="image"
+            src="/images/heart.png"
+            alt
+          />
+          <img
+            v-if="isFound(product)"
+            @click="removeFromCart(product)"
+            class="image"
+            src="/images/heart_pink.png"
+            alt
+          />
           <h1 class="title">{{product.title}}</h1>
           <h1>{{product.album}}</h1>
           <h1>{{product.artist}}</h1>
@@ -41,19 +53,21 @@ export default {
       this.$root.$data.cart.push(product);
     },
     removeFromCart(product) {
-      var index = this.$root.$data.cart.map(x => {
-        return x.id;
-      }).indexOf(product.id);
+      var index = this.$root.$data.cart
+        .map(x => {
+          return x.id;
+        })
+        .indexOf(product.id);
 
       this.$root.$data.cart.splice(index, 1);
     },
     isFound(product) {
       var found = false;
-      for(var i = 0; i < this.$root.$data.cart.length; i++) {
-          if (this.$root.$data.cart[i].id == product.id) {
-              found = true;
-              break;
-          }
+      for (var i = 0; i < this.$root.$data.cart.length; i++) {
+        if (this.$root.$data.cart[i].id == product.id) {
+          found = true;
+          break;
+        }
       }
       return found;
     }
@@ -134,7 +148,7 @@ export default {
   background: #f5f5f5;
   color: #000;
   padding-right: 30px;
-  height: 40px;
+  /* height: 40px; */
 }
 
 .info .image {
@@ -162,6 +176,7 @@ export default {
   width: 25em;
   text-justify: auto;
   text-align: center;
+  margin: auto;
 }
 
 .info h2 {
