@@ -7,22 +7,19 @@
         </router-link>
       </div>
       <div id="side">
-        <router-link to="/browse">
-          <div class="menu-item browse">
-            <img src="/images/browse-512.png" />
-            <p>Browse</p>
-          </div>
-        </router-link>
         <router-link to="/">
           <div class="menu-item home">
             <img src="/images/home.png" />
-            <p>Home</p>
+          </div>
+        </router-link>
+        <router-link to="/browse">
+          <div class="menu-item browse">
+            <img src="/images/browse-512.png" />
           </div>
         </router-link>
         <router-link to="/favorites">
           <div class="menu-item favorites">
             <img src="/images/heart.png" />
-            <p>{{ numberOfItems }} favs</p>
           </div>
         </router-link>
       </div>
@@ -92,6 +89,7 @@ body {
 .menu-item {
   display: flex;
   flex-direction: column;
+  margin-left: 28px;
 }
 
 .menu-item p {
