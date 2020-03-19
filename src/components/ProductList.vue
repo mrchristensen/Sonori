@@ -1,18 +1,29 @@
 <template>
   <div class="wrapper">
     <div class="products">
+      <div class="header">
+        <img class="image" src="/images/heart_filled.png" alt />
+        <p class="title">Title</p>
+        <p>Album</p>
+        <p>Artist</p>
+        <p>Genre</p>
+      </div>
       <div class="product" v-for="product in products" :key="product.id">
         <div class="info">
-          <h1>{{product.title}}</h1>
-          <p>{{product.album}}</p>
+          <img class="image" src="/images/heart.png" alt />
+          <h1 class="title">{{product.title}}</h1>
+          <h1>{{product.album}}</h1>
+          <h1>{{product.artist}}</h1>
+          <h1>{{product.genre}}</h1>
         </div>
-        <div class="image">
+        <hr />
+        <!-- <div class="image">
           <img :src="'/images/products/'+product.image" />
-        </div>
-        <div class="price">
+        </div>-->
+        <!-- <div class="price">
           <h2>{{product.artist}}</h2>
           <button v-on:click="addToCart(product)" class="auto">Add to Cart</button>
-        </div>
+        </div>-->
       </div>
     </div>
   </div>
@@ -39,17 +50,46 @@ export default {
   justify-content: center;
 }
 
+.header {
+  display: flex;
+  align-items: center;
+
+  margin: 10px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+
+  width: 1600px;
+  /* margin-left: 12px; */
+  background: #1ed761;
+  color: #000;
+  padding-right: 30px;
+  height: 40px;
+
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+.header p {
+  font-size: 16px;
+  width: 25em;
+  text-justify: auto;
+  text-align: center;
+}
+
 .products {
   margin-top: 20px;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
+  width: 1600px;
 }
 
 .product {
   margin: 10px;
-  margin-top: 50px;
-  width: 200px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  width: 1600px;
 }
 
 .product img {
@@ -65,15 +105,44 @@ export default {
   margin-bottom: 5px;
 }
 
+.product hr {
+  padding: 0;
+  margin: 0;
+}
+
 .info {
-  background: #f2921d;
+  display: flex;
+  background: #f5f5f5;
   color: #000;
-  padding: 10px 30px;
-  height: 80px;
+  padding-right: 30px;
+  height: 40px;
+}
+
+.info .image {
+  height: 40px !important;
+  width: 40px !important;
+  border: 0 !important;
+  padding-top: 3px !important;
+  padding-left: 0 !important;
+  margin-left: 5px !important;
+  margin-right: 18px !important;
+}
+
+.header .image {
+  height: 25px !important;
+  width: 22px !important;
+  border: 0 !important;
+  padding-top: 3px !important;
+  padding-left: 0 !important;
+  margin-left: 14px !important;
+  margin-right: 25px !important;
 }
 
 .info h1 {
   font-size: 16px;
+  width: 25em;
+  text-justify: auto;
+  text-align: center;
 }
 
 .info h2 {
