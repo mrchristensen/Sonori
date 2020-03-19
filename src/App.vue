@@ -76,7 +76,7 @@ body {
 }
 
 #brand img {
-  height: 200px;
+  height: 110px;
 }
 
 #side {
