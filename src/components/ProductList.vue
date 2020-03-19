@@ -3,14 +3,14 @@
     <div class="products">
       <div class="product" v-for="product in products" :key="product.id">
         <div class="info">
-          <h1>{{product.name}}</h1>
-          <p>{{product.country}}</p>
+          <h1>{{product.title}}</h1>
+          <p>{{product.album}}</p>
         </div>
         <div class="image">
           <img :src="'/images/products/'+product.image" />
         </div>
         <div class="price">
-          <h2>{{product.price}}</h2>
+          <h2>{{product.artist}}</h2>
           <button v-on:click="addToCart(product)" class="auto">Add to Cart</button>
         </div>
       </div>

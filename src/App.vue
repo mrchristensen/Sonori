@@ -9,14 +9,20 @@
       <div id="side">
         <router-link to="/browse">
           <div class="menu-item browse">
-            <img src="/images/globe.png" />
+            <img src="/images/browse-512.png" />
             <p>Browse</p>
           </div>
         </router-link>
-        <router-link to="/cart">
-          <div class="menu-item">
-            <img src="/images/love.png" />
-            <p>{{ numberOfItems }} items</p>
+        <router-link to="/">
+          <div class="menu-item home">
+            <img src="/images/home.png" />
+            <p>Home</p>
+          </div>
+        </router-link>
+        <router-link to="/favorites">
+          <div class="menu-item favorites">
+            <img src="/images/heart.png" />
+            <p>{{ numberOfItems }} favs</p>
           </div>
         </router-link>
       </div>
@@ -90,10 +96,10 @@ body {
 
 .menu-item p {
   margin: 0px;
+  margin-right: 50px;
 }
 
 .browse {
-  margin-right: 50px;
 }
 
 /* Footer */

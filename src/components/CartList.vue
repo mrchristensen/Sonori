@@ -37,7 +37,7 @@ export default {
   computed: {
     cartMessage() {
       if (this.products.length == 0) {
-        return "Your cart is empty. Add products to your cart to see them here.";
+        return "You haven't added any songs to your favs. Hearts some songs to see them here.";
       }
       return "";
     }
