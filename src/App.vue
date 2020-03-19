@@ -21,13 +21,12 @@
         </router-link>
       </div>
     </div>
+
     <router-view />
 
     <!-- Footer -->
     <p class="footer" id="footer-text">
-      <a
-        href="https://github.com/BYU-CS-260-Winter-2020/lab-3b-grocery-store-mrchristensen"
-      >https://github.com/BYU-CS-260-Winter-2020/lab-3b-grocery-store-mrchristensen</a>
+      <a href="https://github.com/mrchristensen/Sonori">https://github.com/mrchristensen/Sonori</a>
     </p>
   </div>
 </template>
