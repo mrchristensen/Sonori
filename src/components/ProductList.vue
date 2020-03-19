@@ -10,7 +10,8 @@
       </div>
       <div class="product" v-for="product in products" :key="product.id">
         <div class="info">
-          <img class="image" src="/images/heart.png" alt />
+          <img v-if="!isFound(product)" @click="addToCart(product)" class="image" src="/images/heart.png" alt />
+          <img v-if="isFound(product)" @click="removeFromCart(product)" class="image" src="/images/heart_pink.png" alt />
           <h1 class="title">{{product.title}}</h1>
           <h1>{{product.album}}</h1>
           <h1>{{product.artist}}</h1>
@@ -38,6 +39,23 @@ export default {
   methods: {
     addToCart(product) {
       this.$root.$data.cart.push(product);
+    },
+    removeFromCart(product) {
+      var index = this.$root.$data.cart.map(x => {
+        return x.id;
+      }).indexOf(product.id);
+
+      this.$root.$data.cart.splice(index, 1);
+    },
+    isFound(product) {
+      var found = false;
+      for(var i = 0; i < this.$root.$data.cart.length; i++) {
+          if (this.$root.$data.cart[i].id == product.id) {
+              found = true;
+              break;
+          }
+      }
+      return found;
     }
   }
 };
@@ -54,11 +72,12 @@ export default {
   display: flex;
   align-items: center;
 
-  margin: 10px;
-  margin-top: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
   margin-bottom: 0px;
 
-  width: 1600px;
+  width: 1000px;
   /* margin-left: 12px; */
   background: #1ed761;
   color: #000;
@@ -82,14 +101,14 @@ export default {
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
-  width: 1600px;
+  width: 1000px;
 }
 
 .product {
   margin: 10px;
   margin-top: 0px;
   margin-bottom: 0px;
-  width: 1600px;
+  width: 1000px;
 }
 
 .product img {

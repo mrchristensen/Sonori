@@ -15,6 +15,8 @@
         </div>
       </div>
 
+      <ProductList :products="products" /> <!-- why won't this work -->
+
       <p>{{ cartMessage }}</p>
     </div>
   </div>

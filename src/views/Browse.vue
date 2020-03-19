@@ -81,6 +81,8 @@ export default {
 <style scoped>
 .pure-menu {
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .pure-menu-item {
