@@ -1,6 +1,12 @@
 <template>
   <div>
     <div class="pure-menu pure-menu-horizontal">
+      <div class="search">
+        <form class="pure-form">
+          <i class="fas fa-search"></i>
+          <input v-model="searchText" />
+        </form>
+      </div>
       <ul class="pure-menu-list">
         <li class="pure-menu-item">
           <a @click="select('Pop')" href="#" class="pure-menu-link">Pop</a>
@@ -29,6 +35,9 @@
         <li class="pure-menu-item">
           <a @click="select('Metal')" href="#" class="pure-menu-link">Metal</a>
         </li>
+        <li class="pure-menu-item">
+          <a @click="select('all')" href="#" class="pure-menu-link">All Genres</a>
+        </li>
       </ul>
     </div>
     <ProductList :products="products" />
@@ -44,13 +53,20 @@ export default {
   },
   data() {
     return {
-      genre: ""
+      genre: "all",
+      searchText: ""
     };
   },
   computed: {
     products() {
-      return this.$root.$data.products.filter(
-        product => product.genre === this.genre
+      let products = this.$root.$data.products;
+      if(this.genre != "all") {
+        products = this.$root.$data.products.filter(
+          product => product.genre === this.genre
+        );
+      }
+      return products.filter(
+        product => product.title.toLowerCase().search(this.searchText) >= 0
       );
     }
   },
@@ -85,6 +101,36 @@ export default {
 .pure-menu-item :focus {
   background-color: #31e874;
   border-radius: 8px;
+}
+
+.search {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+form {
+  display: table;
+  width: 100%;
+}
+
+i {
+  display: table-cell;
+  padding-left: 10px;
+  width: 1px;
+}
+
+input {
+  display: table-cell;
+  font-size: 20px;
+  border: none !important;
+  box-shadow: none !important;
+  width: 100%;
+  height: 40px;
 }
 
 </style>

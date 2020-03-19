@@ -1,25 +1,22 @@
 <template>
   <div class="basewrapper">
-    <h1>Cart</h1>
+    <h1 id="title">Favorites</h1>
     <div class="wrapper">
       <div class="products">
         <div class="product" v-for="(product, index) in products" :key="product.id">
           <div class="info">
-            <h1>{{product.name}}</h1>
-            <p>{{product.country}}</p>
-          </div>
-          <div class="image">
-            <img :src="'/images/products/'+product.image" />
+            <h1>{{product.title}}</h1>
+            <p>{{product.artist}}</p>
           </div>
           <div class="price">
-            <h2>{{product.price}}</h2>
+            <h2>{{product.album}}</h2>
             <button v-on:click="removeFromCart(index)" class="auto">Remove</button>
           </div>
         </div>
       </div>
+
       <p>{{ cartMessage }}</p>
     </div>
-    <button id="submitOrder">Submit Order</button>
   </div>
 </template>
 
@@ -46,6 +43,10 @@ export default {
 </script>
 
 <style scoped>
+#title {
+  text-align: center;
+}
+
 .wrapper {
   display: flex;
   align-items: center;
