@@ -104,7 +104,7 @@ export default {
 
 .header p {
   font-size: 16px;
-  width: 25em;
+  width: 15em;
   text-justify: auto;
   text-align: center;
 }
@@ -173,7 +173,7 @@ export default {
 
 .info h1 {
   font-size: 16px;
-  width: 25em;
+  width: 15em;
   text-justify: auto;
   text-align: center;
   margin: auto;
