@@ -4,7 +4,15 @@ import router from './router'
 
 Vue.config.productionTip = false
 
+import mock from './mock-data.js'
+
+let data = {
+    products: mock,
+    cart: []
+}
+
 new Vue({
-  router,
-  render: h => h(App)
+    router,
+    data,
+    render: h => h(App)
 }).$mount('#app')

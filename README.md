@@ -1,4 +1,4 @@
-# Sonori
+# grocery-store
 
 ## Project setup
 ```

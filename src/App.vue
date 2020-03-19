@@ -16,14 +16,32 @@
         <router-link to="/cart">
           <div class="menu-item">
             <img src="/images/love.png" />
-            <p>0 items</p>
+            <p>{{ numberOfItems }} items</p>
           </div>
         </router-link>
       </div>
     </div>
     <router-view />
+
+    <!-- Footer -->
+    <p class="footer" id="footer-text">
+      <a
+        href="https://github.com/BYU-CS-260-Winter-2020/lab-3b-grocery-store-mrchristensen"
+      >https://github.com/BYU-CS-260-Winter-2020/lab-3b-grocery-store-mrchristensen</a>
+    </p>
   </div>
 </template>
+
+<script>
+export default {
+  name: "App",
+  computed: {
+    numberOfItems() {
+      return this.$root.$data.cart.length;
+    }
+  }
+};
+</script>
 
 <style>
 * {
@@ -78,4 +96,19 @@ body {
 .browse {
   margin-right: 50px;
 }
+
+/* Footer */
+
+.footer {
+  margin-top: 50px;
+  bottom: 20px;
+  height: 20px;
+  text-align: center;
+  /* opacity: 50%; */
+  transition-duration: 0.4s;
+}
+
+/* .footer:hover {
+  opacity: 100%;
+} */
 </style>
