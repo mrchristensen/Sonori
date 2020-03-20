@@ -21,12 +21,12 @@
         <ul class="pure-menu-list">
           <li class="pure-menu-item">
             <router-link to="/browse">
-              <a class="pure-menu-link">Browse by Genre</a>
+              <a @click="changePage('browse')" class="pure-menu-link">Browse by Genre</a>
             </router-link>
           </li>
           <li class="pure-menu-item">
             <router-link to="/favorites">
-              <a class="pure-menu-link">See my Favorites</a>
+              <a @click="changePage('heart')" class="pure-menu-link">See my Favorites</a>
             </router-link>
           </li>
         </ul>
@@ -40,7 +40,12 @@
 <script>
 // import ProductList from "../components/ProductList.vue";
 export default {
-  name: "Home"
+  name: "Home",
+  methods: {
+    changePage(page) {
+      this.$root.$data.currentPage = page;
+    }
+  }
 };
 </script>
 
