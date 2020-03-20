@@ -8,7 +8,8 @@ import mock from './mock-data.js'
 
 let data = {
     products: mock,
-    cart: []
+    cart: [],
+    currentPage: 'home'
 }
 
 new Vue({

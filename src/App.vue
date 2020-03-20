@@ -3,23 +3,23 @@
     <div id="menu">
       <div id="brand">
         <router-link to="/">
-          <img src="/images/logo.png" />
+          <img @click="changePage('home')" src="/images/logo.png" />
         </router-link>
       </div>
       <div id="side">
         <router-link to="/">
           <div class="menu-item home">
-            <img src="/images/home.png" />
+            <img @click="changePage('home')" class="icon" :src="homeIcon"/>
           </div>
         </router-link>
         <router-link to="/browse">
           <div class="menu-item browse">
-            <img src="/images/browse-512.png" />
+            <img @click="changePage('browse')" class="icon" :src="browseIcon" />
           </div>
         </router-link>
         <router-link to="/favorites">
           <div class="menu-item favorites">
-            <img src="/images/heart.png" />
+            <img @click="changePage('heart')" class="icon" :src="favoritesIcon" />
           </div>
         </router-link>
       </div>
@@ -37,15 +37,48 @@
 <script>
 export default {
   name: "App",
+  methods: {
+    changePage(page) {
+      this.$root.$data.currentPage = page;
+    }
+  },
   computed: {
     numberOfItems() {
       return this.$root.$data.cart.length;
+    },
+    homeIcon() {
+      if(this.$root.$data.currentPage == "home") {
+        return '/images/home_filled.png';
+      }
+      else {
+        return '/images/home.png';
+      }
+    },
+    favoritesIcon() {
+      if(this.$root.$data.currentPage == "heart") {
+        return '/images/heart_filled.png';
+      }
+      else {
+        return '/images/heart.png';
+      }
+    },
+    browseIcon() {
+      if(this.$root.$data.currentPage == "browse") {
+        return '/images/browse_filled.png';
+      }
+      else {
+        return '/images/browse-512.png';
+      }
     }
   }
 };
 </script>
 
 <style>
+.icon:hover {
+  opacity: 0.5;
+}
+
 * {
   box-sizing: border-box;
 }
